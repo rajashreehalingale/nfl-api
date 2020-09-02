@@ -21,7 +21,9 @@ const saveNewTeam = (request, response) => {
   if (!location || !mascot || !abbreviation || !conference || !division) {
     return response.status(400).send('The following fields are required:name, realname, firstapperance, slug')
   }
-  const nextID = teams.length++
+  const nextID = teams[teams.length - 1].id + 1
+
+  console.log(nextID)
 
   const newTeam = {
     nextID, location, mascot, abbreviation, conference, division
